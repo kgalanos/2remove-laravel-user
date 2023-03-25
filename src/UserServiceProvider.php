@@ -1,12 +1,13 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Kgalanos\User;
 
+use Kgalanos\User\Commands\MakeUserCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use Kgalanos\User\Commands\UserCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class UserServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +17,8 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->name('laravel-user')
+            ->hasMigration('alter_laravel-user_table')
+            ->hasCommand(MakeUserCommand::class);
     }
 }
