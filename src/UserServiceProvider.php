@@ -18,7 +18,7 @@ class UserServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-user')
-            ->hasMigration('alter_laravel-user_table')
+            ->hasMigrations('alter_laravel-user_table') //,'alter_laravel-user_session_table')
             ->hasCommand(MakeUserCommand::class);
     }
 }

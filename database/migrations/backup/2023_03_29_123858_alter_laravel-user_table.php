@@ -9,18 +9,17 @@ return new class extends Migration
      public function up()
      {
          Schema::table('users', function (Blueprint $table) {
-//             $table->dropColumn('id');
+             $table->dropColumn('id');
          });
          Schema::table('users', function (Blueprint $table) {
 
-//             $table->ulid('id')->primary()->first();
+             $table->ulid('id')->primary()->first();
              $table->string('username')->nullable()->default(null)->unique('username')->after('id');
-             $table->boolean('is_admin')->nullable()->default(false)->after('username');
+             $table->boolean('is_super_admin')->nullable()->default(false)->after('username');
              $table->string('phone')->nullable()->default(null)->unique('phone')->after('email_verified_at');
              $table->timestamp('phone_verified_at')->nullable()->default(null)->after('phone');
-             $table->timestamp('last_login_at')->nullable()->default(null)->index('last_login_at');
-             $table->string('last_login_at')->nullable()->default(null);
-             $table->softDeletes();
+             $table->date('ban_from')->nullable()->default(null)->after('phone_verified_at');
+             $table->date('ban_until')->nullable()->default(null)->after('ban_from');
          });
      }
 
