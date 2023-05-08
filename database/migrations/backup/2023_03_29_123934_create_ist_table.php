@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('filter_ist_username_lekt', function (Blueprint $table) {
-            $table->string('username',6)->index('username');
-            $table->string('lekt',20)->index('lekt');
+            $table->string('username', 6)->index('username');
+            $table->string('lekt', 20)->index('lekt');
 
-            $table->primary(['lekt','username']);
+            $table->primary(['lekt', 'username']);
         });
         /*
          *
@@ -24,16 +24,16 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('sym_kodsym')->index('sym_kodsym');
             $table->bigInteger('aaparas');
-            $table->string('username',6)->index('username');
+            $table->string('username', 6)->index('username');
             $table->date('symekdd')->nullable();
             $table->date('symend')->nullable();
             $table->date('symlhd')->nullable();
-            $table->string('symkal',3);
-            $table->string('symkin',4);
-            $table->string('symperi',20);
+            $table->string('symkal', 3);
+            $table->string('symkin', 4);
+            $table->string('symperi', 20);
             $table->date('symkind')->nullable();
             $table->decimal('symekp');
-            $table->string('symstatus',1);
+            $table->string('symstatus', 1);
             $table->decimal('prposost');
             $table->bigInteger('prendprom');
             $table->decimal('prforos');
@@ -49,12 +49,12 @@ return new class extends Migration
             $table->decimal('epib1');
             $table->decimal('epib2');
             $table->decimal('plafon');
-            $table->string('lekt',20)->index('lekt');
-            $table->string('symepo',40);
+            $table->string('lekt', 20)->index('lekt');
+            $table->string('symepo', 40);
             $table->decimal('prpromh');
             $table->decimal('msforos');
-            $table->string('kodpran',40);
-            $table->string('afm',20);
+            $table->string('kodpran', 40);
+            $table->string('afm', 20);
 
             $table->foreign('username')
                 ->references('username')

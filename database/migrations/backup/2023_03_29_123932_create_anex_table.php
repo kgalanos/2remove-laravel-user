@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('filter_anex_username_lekt', function (Blueprint $table) {
-            $table->string('username',6)->index('username');
-            $table->string('lekt',10)->index('lekt');
+            $table->string('username', 6)->index('username');
+            $table->string('lekt', 10)->index('lekt');
 
-            $table->primary(['lekt','username']);
+            $table->primary(['lekt', 'username']);
         });
         /*
          *
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('sym_kodsym')->index('sym_kodsym');  // it is not unique
             $table->bigInteger('kodpr');
-            $table->string('username',6)->index('username');
+            $table->string('username', 6)->index('username');
             $table->date('anxekd')->nullable();
             $table->date('anxena')->nullable();
             $table->date('anxlhd')->nullable();
@@ -35,9 +35,9 @@ return new class extends Migration
             $table->decimal('anxypol');
             $table->decimal('anxprom');
             $table->date('anxexof')->nullable();
-            $table->string('symepo',40);
+            $table->string('symepo', 40);
             $table->decimal('telypol');
-            $table->string('lekt',10)->index('lekt');
+            $table->string('lekt', 10)->index('lekt');
 
             $table->foreign('username')
                 ->references('username')

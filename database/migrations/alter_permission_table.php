@@ -22,16 +22,16 @@ return new class extends Migration
             throw new \Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
-        Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) use ($columnNames) {
             $table->dropColumn($columnNames['model_morph_key']);
         });
-        Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) use ($columnNames) {
             $table->ulid($columnNames['model_morph_key'])->after('model_type');
         });
-        Schema::table($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::table($tableNames['model_has_roles'], function (Blueprint $table) use ($columnNames) {
             $table->dropColumn($columnNames['model_morph_key']);
         });
-        Schema::table($tableNames['model_has_roless'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::table($tableNames['model_has_roless'], function (Blueprint $table) use ($columnNames) {
             $table->ulid($columnNames['model_morph_key'])->after('model_type');
         });
     }

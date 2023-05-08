@@ -21,13 +21,13 @@ return new class extends Migration
             /*
              * Has inspector
              */
-            $table->foreign('username','prakfn_has_inspector')
+            $table->foreign('username', 'prakfn_has_inspector')
                 ->references('username')
                 ->on('users');
             /*
              * Is inspector
              */
-            $table->foreign('inspector','prakfn_is_inspector')
+            $table->foreign('inspector', 'prakfn_is_inspector')
                 ->references('username')
                 ->on('users');
 

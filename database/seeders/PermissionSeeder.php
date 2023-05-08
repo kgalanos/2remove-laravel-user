@@ -13,15 +13,16 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        $json= File::get('database/json/permissions.json');
+        $json = File::get('database/json/permissions.json');
         $permissions = collect(json_decode($json));
 
-        $permissions->each(function($permission) {
-            if(Permission::where('name', '=', $permission->name)->count() == 0 )
+        $permissions->each(function ($permission) {
+            if (Permission::where('name', '=', $permission->name)->count() == 0) {
                 Permission::create([
                     'name' => $permission->name,
                     'guard_name' => $permission->guard_name,
                 ]);
+            }
         });
     }
 }

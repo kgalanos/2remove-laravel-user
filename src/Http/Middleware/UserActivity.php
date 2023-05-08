@@ -2,12 +2,13 @@
 
 namespace Kgalanos\User\Http\Middleware;
 
-use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Auth;
 use Cache;
+use Closure;
+use Illuminate\Http\Request;
 use Kgalanos\User\Models\User;
+use Symfony\Component\HttpFoundation\Response;
+
 class UserActivity
 {
     /**
@@ -20,18 +21,17 @@ class UserActivity
         if (Auth::check()) {
             $expiresAt = now()->addMinutes(2); /* keep online for 2 min */
 
-            Cache::put('user-is-online-' . Auth::user()->id, true, $expiresAt);
-
-
+            Cache::put('user-is-online-'.Auth::user()->id, true, $expiresAt);
 
             /* last seen */
 
             User::where('id', Auth::user()->id)->update([
                 'last_login_at' => now(),
-                'last_login_ip'=> $request->getClientIp(),
+                'last_login_ip' => $request->getClientIp(),
             ]);
 
         }
+
         return $next($request);
     }
 }

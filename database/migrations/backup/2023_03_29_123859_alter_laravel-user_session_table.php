@@ -16,9 +16,9 @@ return new class extends Migration
         });
         Schema::table('sessions', function (Blueprint $table) {
             $table->foreignUlid('user_id')->nullable()->index()->after('id')->constrained();
-//            $table->ulid('user_id')->nullable()->index()->after('id');
+            //            $table->ulid('user_id')->nullable()->index()->after('id');
         });
-        }
+    }
 
     /**
      * Reverse the migrations.

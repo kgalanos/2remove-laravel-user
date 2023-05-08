@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('filter_sym_username_omadaasfalisis', function (Blueprint $table) {
 
-            $table->string('username',6)->index('username');
-            $table->string('omada_asfalisis',20)->index('omada_asfalisis');
+            $table->string('username', 6)->index('username');
+            $table->string('omada_asfalisis', 20)->index('omada_asfalisis');
 
-            $table->primary(['omada_asfalisis','username']);
+            $table->primary(['omada_asfalisis', 'username']);
         });
         /*
          *
@@ -24,19 +24,19 @@ return new class extends Migration
         Schema::create('sym', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('kodsym')->unique();   // I use kodsym
-            $table->string('username',6)->index('username'); // I use userename for kodpra
-            $table->string('kodpran',10);
-            $table->string('eponimia',40)->index('eponimia');
-            $table->string('afm',10);
-            $table->string('epagelma',25);
-            $table->string('odos',30);
-            $table->string('polh',20);
-            $table->string('t_k',5);
-            $table->string('tel_1',15);
-            $table->string('tel_2',15);
-            $table->string('tel_3',15);
-            $table->string('email',40);
-            $table->string('omada_asfalisis',20)->index('omada_asfalisis');
+            $table->string('username', 6)->index('username'); // I use userename for kodpra
+            $table->string('kodpran', 10);
+            $table->string('eponimia', 40)->index('eponimia');
+            $table->string('afm', 10);
+            $table->string('epagelma', 25);
+            $table->string('odos', 30);
+            $table->string('polh', 20);
+            $table->string('t_k', 5);
+            $table->string('tel_1', 15);
+            $table->string('tel_2', 15);
+            $table->string('tel_3', 15);
+            $table->string('email', 40);
+            $table->string('omada_asfalisis', 20)->index('omada_asfalisis');
             $table->date('date_ekdd')->nullable();
             $table->date('date_end')->nullable();
             $table->date('date_lhjh')->nullable();
@@ -50,9 +50,9 @@ return new class extends Migration
             $table->string('oros_kal');
             $table->integer('oros_num')->default(0);
             $table->decimal('ofilomena')->default(0);
-            $table->string('kodiko_pliromis',25);
-            $table->string('keimeno_1',70);
-            $table->string('keimeno_2',70);
+            $table->string('kodiko_pliromis', 25);
+            $table->string('keimeno_1', 70);
+            $table->string('keimeno_2', 70);
             $table->integer('parast')->default(0);
             $table->decimal('asf_poso')->default(0);
             $table->decimal('plafon')->default(0);
@@ -64,8 +64,8 @@ return new class extends Migration
                 ->references('username')
                 ->on('users');
 
-            $table->foreign(['username','omada_asfalisis'])
-                ->references(['username','omada_asfalisis'])
+            $table->foreign(['username', 'omada_asfalisis'])
+                ->references(['username', 'omada_asfalisis'])
                 ->on('filter_sym_username_omadaasfalisis');
         });
 
@@ -73,10 +73,10 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('sym_kodsym')->index('kodsym');
             $table->Integer('oxaa');
-            $table->string('oxkykl',10);
-            $table->string('marka',10);
+            $table->string('oxkykl', 10);
+            $table->string('marka', 10);
 
-            $table->foreign('sym_kodsym','symox_kodsym_sym')
+            $table->foreign('sym_kodsym', 'symox_kodsym_sym')
                 ->references('kodsym')
                 ->on('sym');
         });
@@ -87,12 +87,11 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('sym_kodsym')->index('kodsym');
             $table->Integer('pmaa');
-            $table->string('pmperi',30);
+            $table->string('pmperi', 30);
 
-            $table->foreign('sym_kodsym','sympost_kodsym_sym')
+            $table->foreign('sym_kodsym', 'sympost_kodsym_sym')
                 ->references('kodsym')
-                ->on('sym')
-            ;
+                ->on('sym');
         });
         /*
          *
@@ -101,13 +100,13 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('sym_kodsym')->index('kodsym');
             $table->integer('apaa');
-            $table->string('apperi',30);
+            $table->string('apperi', 30);
 
-            $table->foreign('sym_kodsym','symap_kodsym_sym')
+            $table->foreign('sym_kodsym', 'symap_kodsym_sym')
                 ->references('kodsym')
                 ->on('sym');
         });
-        }
+    }
 
     /**
      * Reverse the migrations.

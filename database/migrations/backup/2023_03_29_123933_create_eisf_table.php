@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('eisf', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->string('username',6)->index('username');
-            $table->string('symepo',40);
+            $table->string('username', 6)->index('username');
+            $table->string('symepo', 40);
             $table->string('sym_kodsym')->index('sym_kodsym');
             $table->bigInteger('anxpr');
             $table->date('anxexof')->nullable();

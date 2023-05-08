@@ -13,15 +13,16 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $json= File::get('database/json/roles.json');
+        $json = File::get('database/json/roles.json');
         $roles = collect(json_decode($json));
 
-        $roles->each(function($role) {
-            if(Role::where('name', '=', $role->name)->count() == 0)
+        $roles->each(function ($role) {
+            if (Role::where('name', '=', $role->name)->count() == 0) {
                 Role::create([
                     'name' => $role->name,
                     'guard_name' => $role->guard_name,
                 ]);
+            }
         });
     }
 }
