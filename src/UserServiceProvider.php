@@ -5,7 +5,6 @@ namespace Kgalanos\User;
 use Kgalanos\User\Commands\MakeUserCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Kgalanos\User\Commands\UserCommand;
 
 class UserServiceProvider extends PackageServiceProvider
 {
